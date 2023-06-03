@@ -66,7 +66,7 @@ class LinkedList {
     }
 
 
-    remove(index) {
+    removeindex(index) {
         if (index < 0 || index > this.size) {
             return console.log('either the index entered is valid and the size doesmatch ')
         }
@@ -85,6 +85,30 @@ class LinkedList {
         }
         this.size--
         return removenode.value
+    }
+
+    removeValue(value) {
+        if (this.isEmpty()) {
+            return console.log('no Value in the list to remove')
+        }
+
+        if (this.head.value === value) {
+            this.head = this.head.next
+        } else {
+            let prev = this.head
+
+            while (prev.next && prev.next.value !== value) {
+                prev = prev.next
+            }
+            if (prev.next) {
+                const removenode = prev.next
+                prev.next = removenode.next
+                this.size--
+                return value
+            }
+            return null
+        }
+
     }
 
     print() {
@@ -124,8 +148,6 @@ list.insert(30, 1)
 list.print()
 list.insert(40, 3)
 list.print()
-list.remove(3)
-list.print()
-list.remove(0)
+list.removeValue(40)
 list.print()
 
