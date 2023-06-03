@@ -110,6 +110,23 @@ class LinkedList {
         }
 
     }
+    search(value) {
+        if (this.isEmpty()) {
+            return -1
+        }
+
+        let cur = this.head
+        let i = 0
+        while (cur) {
+            if (cur.value === value) {
+                return i
+            }
+            cur = cur.next
+            i++
+        }
+
+        return "value not found"
+    }
 
     print() {
         if (this.isEmpty()) {
@@ -124,10 +141,6 @@ class LinkedList {
             console.log(listvalue)
         }
     }
-
-
-
-
 
 }
 
@@ -148,6 +161,15 @@ list.insert(30, 1)
 list.print()
 list.insert(40, 3)
 list.print()
-list.removeValue(40)
+// list.removeValue(40)
+list.print()
+
+
+list.prepend(50)
+list.prepend(60)
+list.print()
+
+// list.search(20)
+console.log(list.search(300))
 list.print()
 
