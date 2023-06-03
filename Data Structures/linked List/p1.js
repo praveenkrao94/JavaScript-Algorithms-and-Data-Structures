@@ -128,6 +128,20 @@ class LinkedList {
         return "value not found"
     }
 
+    // reverse//
+
+    reverse() {
+        let prev = null
+        let curr = this.head
+        while (curr) {
+            let next = curr.next
+            curr.next = prev
+            prev = curr
+            curr = next
+        }
+        this.head = prev
+    }
+
     print() {
         if (this.isEmpty()) {
             console.log(`list is empty`)
@@ -171,5 +185,6 @@ list.print()
 
 // list.search(20)
 console.log(list.search(300))
+list.reverse()
 list.print()
 
